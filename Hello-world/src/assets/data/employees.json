@@ -1,0 +1,7 @@
+[
+    { "id": 11 , "name": "data" , "age": 22},
+    { "id": 21 , "name": "is fecthing from" , "age": 23},
+    { "id": 31 , "name": "server", "age": 32},
+    { "id": 41, "name": "without hardcode" , "age": 42},
+    { "id" : 51 , "name": "this eg made url and called ", "age": 33}
+  ]

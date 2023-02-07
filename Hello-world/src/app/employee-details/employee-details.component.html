@@ -1,0 +1,7 @@
+<h2>employee details</h2>
+<!-- <h3>{{errorMsg}}</h3> -->
+<ul *ngFor="let employee of employees">
+  <!-- but writing this way is not correct -->
+    <li> {{employee.id}} {{employee.name}} - {{employee.age}} </li>
+</ul>
+<ul>

@@ -1,0 +1,133 @@
+<!-- this where every components needs to be brought   -->
+
+<div style="text-align: center;">
+<h1 class="text-success" ng-app="">
+  Hello world
+</h1>
+<h1 class="text-special">welcome {{name}}</h1>
+<h1>{{2*3}}</h1>
+<h1><input [disabled] = false type="text" value="value"> </h1>
+<h1 class="text-danger">Anusha</h1>
+<!-- class binding -->
+<h1 [class] = "classbinding">Class Binding</h1>
+<h1 [class] = "classbinding" [class] = "classbinding2" >proving that only one class binding is possible</h1>
+<h1 [class.text-danger] = "hasError" >true assigned boolean to check class binding</h1>
+<!--  public noError = false; so css attribute wont apply here-->
+<h1 [class.text-danger] = "noError">with flase assigned boolean for binding</h1>
+
+<!-- directives mutiple class apply -->
+<h2 [ngClass] = "objectcreation"> multiple class </h2>
+<h2 [ngClass] = "objectcreations"> Multiple class</h2>
+
+<!-- style binding -->
+<h2 [style.color] = "highlighter">Style Binding</h2>
+<!-- we can create condition in style binding -->
+<h2 [style.font-size] = "hascolor ? 'xx-small' : 'large'" [style.color] = "hasnocolor ? 'purple' : 'green'" >Style binding 2</h2>
+<h2 [style.color] = "hasnocolor ? 'purple' : 'green'">style binding color green because hasnocolor is false</h2>
+<!-- multiple styles using ngstyle -->
+<h2 [ngStyle] = "titleStyles">Style binding 3</h2>
+
+<!-- event binding -->
+<button (click) = "onClick($event)">Click here</button>
+{{greeting}} <br>
+<button (click) = "onClick($event)">Greet</button>
+{{greet}}<br>
+<button (click) = "greeting= 'Welcome to the club'">Click</button>
+{{greeting}} <br>
+
+<!-- Template variable -->
+<input #MyInput type="text"> <br>
+<button (click) = "logMsg(MyInput.value)">Log</button>
+<br>
+
+<!-- Two binding -->
+<label>Enter something</label>
+<input [(ngModel)] = "Firstname"  type="text">
+
+{{Firstname}}
+<br>
+<!-- Structure Directive -->
+<!-- If else and then -->
+<!-- only if -->
+<h2 *ngIf = "displays"> Structure Directive</h2>
+<h3 *ngIf = "nodisplay"> Hello no display</h3>
+<br>
+<!-- if and else -->
+<p *ngIf  = "nodisplay; else elseBlock"> First block</p>
+<ng-template #elseBlock>
+  <p style="color:red;">Second block</p>
+</ng-template>
+
+<!-- if thn and else -->
+<div *ngIf = "displays; then thenBlock; else elseBlock"></div>
+<ng-template #thenBlock>
+  <h4 style="background-color: red;">Then block</h4>
+</ng-template>
+
+<ng-template #elseBlock>
+<h1>Else block</h1>
+</ng-template>
+<br>
+
+<!-- switch case -->
+<div [ngSwitch] = "colors">
+<div *ngSwitchCase = "'red'" style="color: red;" > you picked red</div>
+<div *ngSwitchCase = "'blue'" style="color: blue;"> you picked blue</div>
+<div *ngSwitchCase = "'green'" style="color: green;"> you picked green</div>
+</div>
+
+<!-- for loop -->
+<div *ngFor = "let color of colours">
+  <h2>{{color}}</h2>
+</div>
+
+<div *ngFor = "let color of colours; index as i">
+  <h2> {{i}} {{color}}</h2>
+</div>
+<!-- this first check which is first, says true  -->
+<div *ngFor = "let color of colours;  first as t">
+  <h2> {{t}} {{color}}</h2>
+</div>
+<!-- last -->
+<div *ngFor = "let color of colours; last as p">
+  <h2> {{p}} {{color}}</h2>
+</div>
+<!-- even checked for odd and even  for above-->
+
+<!-- component interaction -->
+
+  <app-tester  (childEvent) = "mesg = $event"  [parentData] = "compname" ></app-tester> 
+  <!-- this will display the msg -->
+  <div>
+    <h1>{{mesg}}</h1>
+  </div>
+
+<!-- pipes -->
+<!-- for sting -->
+<h2>{{pipes | uppercase}}</h2>
+<h2>{{pipes | lowercase}}</h2>
+<h2>{{sentence | titlecase}}</h2>
+<h2>{{pipes | slice: 3}}</h2>
+<h2>{{pipes | slice: 2-6}}</h2> 
+<h2>{{pipes | slice: 2:5}}</h2>
+<!-- objects -->
+<h1>{{person | json}}}</h1>
+<!-- on number -->
+<h3>{{23242.3452 | number : '1.2-3' }}</h3>
+
+<h3>{{0.32 | percent}}</h3>
+<h3>{{0.32 | currency }}</h3>
+<h3>{{0.32 | currency: 'GDP'}}</h3>
+<h3>{{0.32 | currency:  'RUP': 'code'}}</h3>
+
+<h2>{{date}}</h2>
+<h2>{{date | date : 'short'}}</h2>
+<h2>{{date | date : 'long'}}</h2>
+<h2>{{date | date : 'shortDate'}}</h2>
+<h2>{{date | date : 'shortTime'}}</h2>
+</div>
+
+<!-- services example -->
+<!-- employee -->
+<app-employee></app-employee>
+<app-employee-details></app-employee-details>

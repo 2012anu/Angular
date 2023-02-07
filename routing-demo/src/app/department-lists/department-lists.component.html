@@ -1,0 +1,12 @@
+<h1>Department List</h1>
+  <ul class="items">
+    <!-- if  iselected is true and thn they apply class selected to la tag  -->
+    <li  (click) = "onSelect(department)" [class.selected] = "isSelected(department)" *ngFor="let department of departments">
+      <span class="badge" >{{department.id}}</span> {{department.name}}
+    </li>
+  </ul>
+
+  <!-- <h2 madBadge = "5" matBadgeOverlap = "false">Badge display</h2>
+  <p>
+    <span matBadge="5" matBadgeOverlap="false">Text with a badge</span>
+  </p> -->
